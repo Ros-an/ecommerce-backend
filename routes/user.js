@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 // importing logic(method) from controller
-const { greetings } = require("../controllers/user");
+const { signup } = require("../controllers/user");
 
-router.get("/", greetings);
+router.post("/signup", signup);
 
 module.exports = router;
