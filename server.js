@@ -20,7 +20,7 @@ mongoose
   .then(() => console.log("DB connected"))
   .catch((err) => console.log("this is error =>", err));
 
-// middleware
+//! middleware
 app.use(morgan("dev"));
 //Used to parse JSON bodies
 app.use(express.json());
@@ -33,7 +33,7 @@ app.use(
 app.use(cookieParser());
 
 // routes middleware
-app.use("/api/user", userRoutes);
+app.use("/api", userRoutes);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
