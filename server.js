@@ -2,6 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
+//import route
+const userRoute = require("./routes/user");
+
 // app
 const app = express();
 
@@ -14,11 +17,9 @@ mongoose
   .then(() => console.log("DB connected"))
   .catch((err) => console.log("this is eror", err));
 
-// routes
-app.get("/", (req, res) => {
-  res.send("Hello Roshan! kya hal chal");
-});
+// routes middleware
 
+app.use("/api/user", userRoute);
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
